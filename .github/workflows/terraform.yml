@@ -1,0 +1,32 @@
+name: Terraform
+
+# Static checks only: no AWS credentials, no state access, nothing is deployed.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.15.8
+
+      - name: Format
+        run: terraform fmt -check -recursive
+
+      - name: Init (no backend)
+        run: terraform init -backend=false -input=false
+
+      - name: Validate
+        run: terraform validate

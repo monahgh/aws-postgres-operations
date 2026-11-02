@@ -1,0 +1,28 @@
+# Terraform local state and artifacts
+# (.terraform.lock.hcl is committed on purpose: it pins provider versions.)
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.*
+**/tfplan
+**/*.tfvars
+**/*.tfvars.json
+**/crash.log
+**/override.tf
+**/override.tf.json
+**/*_override.tf
+**/*_override.tf.json
+
+# Backend config with the account ID
+**/backend.hcl
+
+# Lambda build artifacts and local env files
+**/build/
+**/.build/
+*.zip
+.env
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

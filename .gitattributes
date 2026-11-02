@@ -1,0 +1,4 @@
+# Scripts and SQL run on Linux: keep LF line endings even when edited on Windows.
+*.sh  text eol=lf
+*.sql text eol=lf
+*.env text eol=lf

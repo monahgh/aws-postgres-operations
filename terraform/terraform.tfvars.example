@@ -1,0 +1,9 @@
+aws_region = "eu-central-1"
+project_name = "pgops-lab"
+
+# Preferred pattern: keep the secret in AWS Secrets Manager and set the secret name here.
+db_username = "postgresadmin"
+db_secret_name = "pgops-lab/postgres/password"
+
+# If you leave this as null, Terraform will read the secret from AWS Secrets Manager.
+db_password = null
